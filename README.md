@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Asadullah</h1>
 <h3 align="center">Aspiring Web developer. Mastering JavaScript</h3>
-<img align="right" alt="Coding" width="400" src="https://giphy.com/gifs/computador-gu-tecnology-bGgsc5mWoryfgKBx1u"/>
+<img align="right" alt="Coding" width="400" src="https://giphy.com/gifs/computador-gu-tecnology-bGgsc5mWoryfgKBx1u">
 
 - 🌱 I’m currently learning **ReactJs, Android Development, Java**
 
