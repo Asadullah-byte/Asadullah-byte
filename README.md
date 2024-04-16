@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Asadullah</h1>
 <h3 align="center">Aspiring Web developer. Mastering JavaScript</h3>
-<img align="right" alt="Coding" width="400" src="https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/86173193901160515972084982170544104041290069541789401707310940591180625215489">
+<img align="right" alt="Coding" width="400" src="https://dl.openseauserdata.com/cache/originImage/files/527a9783c28c70962773a73db797ea4d.gif">
 
 - 🌱 I’m currently learning **ReactJs, Android Development, Java**
 
