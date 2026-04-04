@@ -6,7 +6,7 @@ TOKEN = os.environ["GH_TOKEN"]
 
 headers = {"Authorization": f"Bearer {TOKEN}", "Accept": "application/vnd.github+json"}
 
-# Collect push events across up to 10 pages (GitHub keeps ~90 days)
+# Collect push events
 counts = defaultdict(int)
 for page in range(1, 11):
     r = requests.get(
@@ -15,18 +15,37 @@ for page in range(1, 11):
         params={"per_page": 100, "page": page},
     )
     data = r.json()
-    if not data:
+    if not data or not isinstance(data, list):
         break
     for event in data:
         if event.get("type") == "PushEvent":
-            repo = event["repo"]["name"]          # e.g. "Asadullah-byte/my-repo"
+            repo = event["repo"]["name"]
             counts[repo] += event["payload"].get("distinct_size", 1)
 
-# Pick top 2 (skip your profile repo itself)
+print("Push event counts:", dict(counts))  # debug line
+
+# Pick top 2 (skip profile repo)
 top = sorted(
     [(repo, c) for repo, c in counts.items() if not repo.endswith(f"/{USER}")],
     key=lambda x: x[1], reverse=True
 )[:2]
+
+# Fallback: if no push events found, use most recently updated public repos
+if not top:
+    print("No push events found, falling back to recently updated repos...")
+    r = requests.get(
+        f"https://api.github.com/users/{USER}/repos",
+        headers=headers,
+        params={"per_page": 10, "sort": "pushed", "type": "all"},
+    )
+    repos = r.json()
+    top = [
+        (repo["full_name"], 0)
+        for repo in repos
+        if not repo["full_name"].endswith(f"/{USER}") and not repo["fork"]
+    ][:2]
+
+print("Top repos selected:", [r for r, _ in top])
 
 def pin_badge(repo_full):
     owner, name = repo_full.split("/")
@@ -51,4 +70,4 @@ readme = re.sub(
     flags=re.DOTALL,
 )
 open("README.md", "w").write(readme)
-print("Updated pins:", [r for r, _ in top])
+print("Done.")
