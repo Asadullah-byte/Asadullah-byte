@@ -22,7 +22,7 @@ for page in range(1, 11):
             repo = event["repo"]["name"]
             counts[repo] += event["payload"].get("distinct_size", 1)
 
-print("Push event counts:", dict(counts))  # debug line
+print("Push event counts:", dict(counts))
 
 # Pick top 2 (skip profile repo)
 top = sorted(
@@ -30,7 +30,7 @@ top = sorted(
     key=lambda x: x[1], reverse=True
 )[:2]
 
-# Fallback: if no push events found, use most recently updated public repos
+# Fallback: if no push events found, use most recently pushed public repos
 if not top:
     print("No push events found, falling back to recently updated repos...")
     r = requests.get(
@@ -54,12 +54,14 @@ def pin_badge(repo_full):
         f"?username={owner}&repo={name}"
         f"&border_color=7F3FBF&bg_color=0D1117"
         f"&title_color=C9D1D9&text_color=8B949E&icon_color=7F3FBF"
+        f"&show_owner=true&cache_seconds=1800"
     )
     url = f"https://github.com/{repo_full}"
-    return f"[![{name}]({img})]({url})"
+    return f'<a href="{url}"><img src="{img}" /></a>'
 
+# Build the block — cards side by side with a small gap
 new_block = "<!-- TOP-REPOS-START -->\n"
-new_block += "  ".join(pin_badge(r) for r, _ in top) + "\n"
+new_block += "\n".join(pin_badge(r) for r, _ in top) + "\n"
 new_block += "<!-- TOP-REPOS-END -->"
 
 readme = open("README.md").read()
