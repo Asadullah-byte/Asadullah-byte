@@ -21,8 +21,8 @@
 
 <p align="left">
 <!-- TOP-REPOS-START -->
-<a href="https://github.com/Asadullah-byte/cmsagent"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Asadullah-byte&repo=cmsagent&border_color=7F3FBF&bg_color=0D1117&title_color=C9D1D9&text_color=8B949E&icon_color=7F3FBF&show_owner=true&cache_seconds=1800" /></a>
-<a href="https://github.com/Asadullah-byte/resolveX"><img src="https://github-readme-stats.vercel.app/api/pin/?username=Asadullah-byte&repo=resolveX&border_color=7F3FBF&bg_color=0D1117&title_color=C9D1D9&text_color=8B949E&icon_color=7F3FBF&show_owner=true&cache_seconds=1800" /></a>
+<a href="https://github.com/Asadullah-byte/cmsagent"><img src="https://gh-readme-stats-delta.vercel.app/api/pin/?username=Asadullah-byte&repo=cmsagent&border_color=7F3FBF&bg_color=0D1117&title_color=C9D1D9&text_color=8B949E&icon_color=7F3FBF&show_owner=true" width="400" /></a>
+<a href="https://github.com/Asadullah-byte/resolveX"><img src="https://gh-readme-stats-delta.vercel.app/api/pin/?username=Asadullah-byte&repo=resolveX&border_color=7F3FBF&bg_color=0D1117&title_color=C9D1D9&text_color=8B949E&icon_color=7F3FBF&show_owner=true" width="400" /></a>
 <!-- TOP-REPOS-END -->
 </p>
 <p align="left">
