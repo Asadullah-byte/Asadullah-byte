@@ -49,15 +49,16 @@ print("Top repos selected:", [r for r, _ in top])
 
 def pin_badge(repo_full):
     owner, name = repo_full.split("/")
+    # Use gh-readme-stats alternative instance
     img = (
-        f"https://github-readme-stats.vercel.app/api/pin/"
+        f"https://gh-readme-stats-delta.vercel.app/api/pin/"
         f"?username={owner}&repo={name}"
         f"&border_color=7F3FBF&bg_color=0D1117"
         f"&title_color=C9D1D9&text_color=8B949E&icon_color=7F3FBF"
-        f"&show_owner=true&cache_seconds=1800"
+        f"&show_owner=true"
     )
     url = f"https://github.com/{repo_full}"
-    return f'<a href="{url}"><img src="{img}" /></a>'
+    return f'<a href="{url}"><img src="{img}" width="400" /></a>'
 
 # Build the block — cards side by side with a small gap
 new_block = "<!-- TOP-REPOS-START -->\n"
